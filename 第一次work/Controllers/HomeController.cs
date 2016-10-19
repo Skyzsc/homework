@@ -26,5 +26,10 @@ namespace 第一次work.Controllers
 
             return View();
         }
+        public ActionResult News()
+        {
+            ViewData["Name"] = "Bruce";
+            return View();
+        }
     }
 }
