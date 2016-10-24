@@ -26,9 +26,21 @@ namespace 第一次work.Controllers
 
             return View();
         }
+        /// <summary>
+        /// 新闻列表
+        /// </summary>
+        /// <returns></returns>
         public ActionResult News()
         {
             ViewData["Name"] = "Bruce";
+            return View();
+        }
+        /// <summary>
+        /// 添加welcome
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult wel()
+        {
             return View();
         }
     }
