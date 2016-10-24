@@ -43,5 +43,22 @@ namespace 第一次work.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// 添加新闻
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult add()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 保存新闻
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Save(string title,string content)
+        {
+            ViewBag.Title = title;
+            return View();
+        }
     }
 }
