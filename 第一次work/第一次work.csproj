@@ -266,6 +266,7 @@
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\wel.cshtml" />
     <Content Include="Views\Home\add.cshtml" />
+    <Content Include="Views\Home\Save.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
