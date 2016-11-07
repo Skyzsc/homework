@@ -1,4 +1,4 @@
-﻿namespace News
+﻿namespace 第一次work
 {
     using System;
     using System.Data.Entity;
