@@ -20,7 +20,7 @@ namespace News.Controllers
 
             if (!string.IsNullOrWhiteSpace(q))
             {
-                lst = lst.Where(o => o.Subject.Contains(q));
+                lst = lst.Where(o => o.Title.Contains(q));
             }
 
 
@@ -36,16 +36,21 @@ namespace News.Controllers
             return View();
         }
 
-        public ActionResult ArticleSave(string subject, string body)
+        public ActionResult ArticleSave(BlogArticle md)
         {
-            var article = new BlogArticle();
-            article.Subject = subject;
-            article.Body = body;
-            article.DateCreated = DateTime.Now;
+            if (ModelState.IsValid)
+              {
+                var article = new BlogArticle();
+                article.Title = md.Title;
+                article.Body = md.Body;
+                article.DateCreated = DateTime.Now;
+        
+                var db = new BlogDatabase();
+                db.BlogArticles.Add(article);
+                db.SaveChanges();
+              }
 
-            var db = new BlogDatabase();
-            db.BlogArticles.Add(article);
-            db.SaveChanges();
+
 
             return Redirect("Index");
         }
@@ -68,12 +73,12 @@ namespace News.Controllers
             return View();
         }
 
-        public ActionResult EditSave(int id, string subject, string body)
+        public ActionResult EditSave(int id, string title, string body)
         {
             var db = new BlogDatabase();
             var article = db.BlogArticles.First(o => o.Id == id);
 
-            article.Subject = subject;
+            article.Title = title;
             article.Body = body;
 
             db.SaveChanges();
