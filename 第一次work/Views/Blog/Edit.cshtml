@@ -5,19 +5,21 @@
 }
 <h2>编辑</h2>
 @using (Html.BeginForm("ArticleSave", "Blog"))
-{ 
+{
      <input type="hidden" value="@Model.Id" name="Id" />
     <table class="table table-bordered">
         <tr>
             <td>标题：</td>
             <td>
                 @Html.TextBox("Title")
+                <div>@Html.ValidationMessageFor(o => o.Subject)</div>
             </td>
         </tr>
         <tr>
             <td>内容</td>
             <td>
-                @Html.TextArea("Body", new { style ="width:600px; max-width:1000px;"})
+                @Html.TextArea("Body", new { style = "width:600px; max-width:1000px;" })
+                @Html.ValidationMessageFor(o => o.Body)
             </td>
         </tr>
         <tr>
@@ -28,4 +30,4 @@
             </td>
         </tr>
     </table>
-</form>
+}
